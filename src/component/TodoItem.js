@@ -1,4 +1,7 @@
 import React, { useRef } from 'react'
+import { AiFillEdit } from 'react-icons/ai'
+import { IoCheckmarkDoneSharp, IoClose } from 'react-icons/io5'
+
 
 
 const TodoItem = (props) => {
@@ -28,9 +31,11 @@ const TodoItem = (props) => {
             onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
             />
             <div className="btn">
-            <button onClick={() => changeFocus()}>Edit</button>
-            <button onClick={() => completedTodo(item.id)}>Complete</button>
-            <button onClick={() => removeTodo(item.id)}>Delete</button>{" "}
+            <button onClick={() => changeFocus()}><AiFillEdit /></button>
+            {item.completed === false && (
+                <button style={{color: "green"}} onClick={() => completedTodo(item.id)}><IoCheckmarkDoneSharp/></button>
+            )}
+            <button style={{color: "red"}} onClick={() => removeTodo(item.id)}><IoClose/></button>{" "}
             </div>
             {item.completed && <span className="completed">done</span>}
         </li>

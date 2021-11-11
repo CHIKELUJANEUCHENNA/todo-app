@@ -24,9 +24,9 @@ function DisplayTodos(props) {
     return (
         <div className="displaytodos">
             <div className="buttons"></div>
-            <button onClick={() => setSort("active")}>Active</button>
-            <button onClick={() => setSort("completed ")}>completed</button>
-            <button onClick={() => setSort("all")}>All</button>
+            <button className="display" onClick={() => setSort("active")}>Active</button>
+            <button className="display" onClick={() => setSort("completed ")}>completed</button>
+            <button className="display" onClick={() => setSort("all")}>All</button>
 
             <ul>
                 {

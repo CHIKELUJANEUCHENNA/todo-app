@@ -25,15 +25,24 @@ const Todos = (props) => {
         setTodo(e.target.value)
     }
 
+    const add = () => {
+        props.addTodo({
+            id: Math.floor(Math.random()*1000),
+            item:todo,
+            completed:false 
+        })
+    }
+
     console.log("props from store", props)
     return (
         <div className="addTodos">
-            <input type="text" className="todo-input" onClick={handleChange}/>
-            <button className="add-btn" onClick={() => props.addTodo({
-                id: Math.floor(Math.random()*1000),
-                item:todo,
-                completed:false 
-            })}>
+            <input 
+            type="text" 
+            className="todo-input" 
+            onClick={handleChange}
+            
+            />
+            <button className="add-btn" onClick={() => add()}>
                 <GoPlus />
             
             </button>
